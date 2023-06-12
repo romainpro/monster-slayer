@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#lifeBar{
+    width: 100%;
+    height: 150px;
+    border:solid black 2px ;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+#lifePlayeur{
+    width: 30%;
+    text-align: center;
+}
+#lifeMonster{
+    width: 30%;
+    text-align: center;
+}
+span{
+    border-radius: 5px;
+    display: inline-block;
+    width: 80%;
+    background-color: green;
+}
+#btnAction{
+    margin-top: 50px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+ height: 80%;
+ width: 10%;
+}
+
+button:hover{
+    cursor: pointer;
+}
+button.attack{
+    background-color: red;
+}
+button.specialAttack{
+    background-color: orange;
+}
+button.Heal{
+    background-color: green;
+}
+
