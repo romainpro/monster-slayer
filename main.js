@@ -7,7 +7,7 @@ let btnReset=document.querySelector(`.reset`)
 let lifePointPlayeur=document.getElementById(`lifePointPlayeur`).textContent
 let lifePointMonster=document.getElementById(`lifePointMonster`).textContent
 
-let maxHeal = 100;
+let maxHeal = 100; 
 
 
 
@@ -91,7 +91,8 @@ function randomSpecialAttackPoint(){
 }
 
 function leave(){
-    alert(`vous avez fuit le combat`)
+    alert(`vous avez fuit le combat`);
+    reset();
 }
 
 function reset(){
