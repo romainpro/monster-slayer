@@ -2,7 +2,7 @@ let btnAttack = document.querySelector(`.attack`);
 let btnHeal   = document.querySelector(`.Heal`);
 let btnSpecialAttack= document.querySelector(`.specialAttack`);
 let btnGiveUp = document.querySelector(`.GiveUp`);
-
+let btnReset=document.querySelector(`.reset`)
 
 let lifePointPlayeur=document.getElementById(`lifePointPlayeur`).textContent
 let lifePointMonster=document.getElementById(`lifePointMonster`).textContent
@@ -12,6 +12,7 @@ btnAttack.addEventListener(`click`,attack);
 btnHeal.addEventListener(`click`,heal);
 btnSpecialAttack.addEventListener(`click`,specialAttack);
 btnGiveUp.addEventListener(`click`,leave);
+btnReset.addEventListener(`click`,reset)
 
 function attack(){
     lifePointPlayeur = Number(lifePointPlayeur);
@@ -83,4 +84,9 @@ function randomSpecialAttackPoint(){
 
 function leave(){
     alert(`vous avez fuit le combat`)
+}
+
+function reset(){
+    document.getElementById('lifePointPlayeur').textContent = 100;
+    document.getElementById('lifePointMonster').textContent = 100;
 }
