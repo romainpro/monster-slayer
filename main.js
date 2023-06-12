@@ -87,6 +87,9 @@ function leave(){
 }
 
 function reset(){
-    document.getElementById('lifePointPlayeur').textContent = 100;
-    document.getElementById('lifePointMonster').textContent = 100;
+    document.getElementById('lifePointPlayeur').textContent = '100';
+    document.getElementById('lifePointMonster').textContent = '100';
+    lifePointPlayeur=100;
+    lifePointMonster=100;
+
 }
