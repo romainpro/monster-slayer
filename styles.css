@@ -13,17 +13,19 @@
 }
 
 #lifePlayeur{
+    margin: 10px;
     width: 30%;
     text-align: center;
 }
 #lifeMonster{
+    margin: 10px;
     width: 30%;
     text-align: center;
 }
 span{
     border-radius: 5px;
     display: inline-block;
-    width: 80%;
+    width: 100%;
     background-color: green;
 }
 #btnAction{
@@ -34,8 +36,9 @@ span{
     justify-content: space-around;
 }
 button{
- height: 80%;
- width: 10%;
+    border-radius: 5px;
+     height: 80%;
+    width: 10%;
 }
 
 button:hover{
