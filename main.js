@@ -7,6 +7,11 @@ let btnReset=document.querySelector(`.reset`)
 let lifePointPlayeur=document.getElementById(`lifePointPlayeur`).textContent
 let lifePointMonster=document.getElementById(`lifePointMonster`).textContent
 
+let maxHeal = 100;
+
+
+
+
 
 btnAttack.addEventListener(`click`,attack);
 btnHeal.addEventListener(`click`,heal);
@@ -41,6 +46,7 @@ function calLifeAfterAttack(attackMonster,attackPlayeur){
     let resultPoint= lifePointPlayeur -attackMonster;
     lifePointPlayeur = resultPoint
     document.getElementById('lifePointPlayeur').textContent = resultPoint;
+    updateDisplayHealBarre();
     console.log(lifePointPlayeur)
 
     let resultPointMonster=lifePointMonster -attackPlayeur;
@@ -53,9 +59,11 @@ function heal(){
     if(lifePointPlayeur >=0 && lifePointPlayeur <=99){
         lifePointPlayeur += 10;
         document.getElementById('lifePointPlayeur').textContent = lifePointPlayeur;
+        updateDisplayHealBarre();
     }else{
         lifePointPlayeur = 100;
         document.getElementById('lifePointPlayeur').textContent = lifePointPlayeur;
+        updateDisplayHealBarre();
     }
 }
 
@@ -91,5 +99,16 @@ function reset(){
     document.getElementById('lifePointMonster').textContent = '100';
     lifePointPlayeur=100;
     lifePointMonster=100;
+    document.getElementById('lifePointPlayeur').style.width = `100%`;
+    document.getElementById('lifePointMonster').style.width = `100%`;
+}
+
+function updateDisplayHealBarre(){
+
+    let healUpdatePlayer=(lifePointPlayeur/ maxHeal)*100;
+    document.getElementById('lifePointPlayeur').style.width = healUpdatePlayer + '%';
+
+    let healUpdateMonster=(lifePointMonster/maxHeal)*100;
+    document.getElementById('lifePointMonster').style.width = healUpdateMonster + '%';
 
 }
