@@ -1,20 +1,24 @@
+/////////////////////////////Pointeur =>btn-html//////////////////////////////
 let btnAttack = document.querySelector(`.attack`);
 let btnHeal = document.querySelector(`.Heal`);
 let btnSpecialAttack = document.querySelector(`.specialAttack`);
 let btnGiveUp = document.querySelector(`.GiveUp`);
 let btnReset = document.querySelector(`.reset`);
-
+/////////////////////////////////////////////////////////////////////////
+////////////////////////variable d'elements html/////////////////////////
 let lifePointPlayeur = document.getElementById(`lifePointPlayeur`).textContent;
 let lifePointMonster = document.getElementById(`lifePointMonster`).textContent;
-
+let divDetail=document.querySelector(`.detail`);
 let maxHeal = 100;
-
+/////////////////////////////////////////////////////////////////////////
+///////////////////addEventListener/////////////////////////////////////
 btnAttack.addEventListener(`click`, attack);
 btnHeal.addEventListener(`click`, heal);
 btnSpecialAttack.addEventListener(`click`, specialAttack);
 btnGiveUp.addEventListener(`click`, leave);
 btnReset.addEventListener(`click`, reset);
-
+///////////////////////////////////////////////////////////////////////////
+////////////////////////function//////////////////////////////////////////
 function attack() {
   lifePointPlayeur = Number(lifePointPlayeur);
   lifePointMonster = Number(lifePointMonster);
@@ -43,17 +47,20 @@ function calLifeAfterAttack(attackMonster, attackPlayeur) {
   document.getElementById("lifePointPlayeur").textContent = resultPoint;
   updateDisplayHealBarre();
   console.log(lifePointPlayeur);
+  displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackPlayeur)
 
   let resultPointMonster = lifePointMonster - attackPlayeur;
   lifePointMonster = resultPointMonster;
   document.getElementById("lifePointMonster").textContent = resultPointMonster;
   console.log(lifePointMonster);
+  displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackPlayeur)
 }
 
 function heal() {
   if (lifePointPlayeur >= 0 && lifePointPlayeur <= 99) {
     lifePointPlayeur += 10;
     document.getElementById("lifePointPlayeur").textContent = lifePointPlayeur;
+
     updateDisplayHealBarre();
   } else {
     lifePointPlayeur = 100;
@@ -96,6 +103,8 @@ function reset() {
   lifePointMonster = 100;
   document.getElementById("lifePointPlayeur").style.width = `100%`;
   document.getElementById("lifePointMonster").style.width = `100%`;
+  // divDetail.removeChild(listeHit)delete span !!!!!!!!
+
 }
 
 function updateDisplayHealBarre() {
@@ -107,3 +116,15 @@ function updateDisplayHealBarre() {
   document.getElementById("lifePointMonster").style.width =
     healUpdateMonster + "%";
 }
+
+// function displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackPlayeur){
+//     let listeHit = document.createElement(`span`);
+//     listeHit.classList.add(`playeur`)
+//     listeHit.textContent =(`vous avez ${lifePointPlayeur} de point de vie , le monstre vous inflige ${attackMonster}point de degat`);
+//     divDetail.appendChild(listeHit)
+
+//     let listeHitMonster =document.createElement(`span`)
+//     listeHit.classList.add(`monster`)
+//      listeHitMonster.textContent =(`le monster a ${lifePointMonster} de point de vie ,  vous infliger ${attackPlayeur}point de degat au monster`);
+//      divDetail.appendChild(listeHitMonster)
+// }
