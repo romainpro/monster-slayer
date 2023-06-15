@@ -23,6 +23,8 @@ function attack() {
   lifePointPlayeur = Number(lifePointPlayeur);
   lifePointMonster = Number(lifePointMonster);
 
+
+
   if (lifePointPlayeur <= 0) {
     alert(`vous avez plu de point de vie`);
   } else if (lifePointMonster <= 0) {
@@ -117,14 +119,11 @@ function updateDisplayHealBarre() {
     healUpdateMonster + "%";
 }
 
-// function displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackPlayeur){
-//     let listeHit = document.createElement(`span`);
-//     listeHit.classList.add(`playeur`)
-//     listeHit.textContent =(`vous avez ${lifePointPlayeur} de point de vie , le monstre vous inflige ${attackMonster}point de degat`);
-//     divDetail.appendChild(listeHit)
+function displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackPlayeur){
+    let listeHit = document.createElement(`span`);
+    listeHit.classList.add(`playeur`)
+    listeHit.textContent =(`vous avez ${lifePointPlayeur} de point de vie , le monstre vous inflige ${attackMonster}point de degat`);
+    divDetail.appendChild(listeHit)
 
-//     let listeHitMonster =document.createElement(`span`)
-//     listeHit.classList.add(`monster`)
-//      listeHitMonster.textContent =(`le monster a ${lifePointMonster} de point de vie ,  vous infliger ${attackPlayeur}point de degat au monster`);
-//      divDetail.appendChild(listeHitMonster)
-// }
+    
+}
