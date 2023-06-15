@@ -5,11 +5,14 @@
 }
 #lifeBar{
     width: 100%;
-    height: 150px;
-    border:solid black 2px ;
+    height: 500px;
+    border:solid rgb(255, 255, 255) 2px ;
     display: flex;
     justify-content:center;
     align-items: center;
+}
+body{
+    background-color:#08405d;
 }
 
 #lifePlayeur{
@@ -36,13 +39,14 @@ span{
     justify-content: space-around;
 }
 button{
-    border-radius: 5px;
-     height: 80%;
+    border-radius: 20px;
+    height: 80%;
     width: 10%;
 }
 
 button:hover{
     cursor: pointer;
+    font-size: 1.2em;
 }
 button.attack{
     background-color: red;
@@ -53,4 +57,33 @@ button.specialAttack{
 button.Heal{
     background-color: green;
 }
+h1{
+    color: whitesmoke;
+}
+span.playeur{
+    background-color:blueviolet;
+    width: 40%;
+    text-align: center;
+}
+span.monster{
+    background-color: burlywood;
+    width: 40%;
+    text-align: center;
 
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.spritePlayeur img{
+    padding-bottom: 40px;
+    height:200px;
+}
+.spritMonster img{
+    height: 200px;
+    transform: scaleX(-1);
+    
+}

@@ -9,6 +9,8 @@ let btnReset = document.querySelector(`.reset`);
 let lifePointPlayeur = document.getElementById(`lifePointPlayeur`).textContent;
 let lifePointMonster = document.getElementById(`lifePointMonster`).textContent;
 let divDetail=document.querySelector(`.detail`);
+let gif = document.querySelector('#lifeBar #lifePlayeur .spritePlayeur img');
+let gifMonster = document.querySelector('#lifeBar #lifeMonster .spritMonster img');
 let maxHeal = 100;
 /////////////////////////////////////////////////////////////////////////
 ///////////////////addEventListener/////////////////////////////////////
@@ -19,6 +21,11 @@ btnGiveUp.addEventListener(`click`, leave);
 btnReset.addEventListener(`click`, reset);
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////////function//////////////////////////////////////////
+arrivePlayeur()
+function arrivePlayeur(){
+  gif.src=`images/gif/__Run.gif`
+}
+
 function attack() {
   lifePointPlayeur = Number(lifePointPlayeur);
   lifePointMonster = Number(lifePointMonster);
@@ -26,10 +33,18 @@ function attack() {
 
 
   if (lifePointPlayeur <= 0) {
-    alert(`vous avez plu de point de vie`);
+    gif.src =`images/gif/__Death.gif`
   } else if (lifePointMonster <= 0) {
-    alert(`vous avez gagnier`);
+    gifMonster.src =`images/gif-monster/NightBorne_death..gif`
   } else {
+    gif.src =`images/gif/__Attack.gif`
+    setTimeout(() => {
+      gif.src =`images/gif/__Idle.gif`
+    }, 300);
+    gifMonster.src =`images/gif-monster/NightBorne_attack.gif`
+    setTimeout(() => {
+      gifMonster.src =`images/gif-monster/NightBorne_idle.gif` 
+    }, 500);
     let pointAttanckMonster = randomAttackPoint();
     let pointAttack = randomAttackPoint();
     calLifeAfterAttack(pointAttanckMonster, pointAttack);
@@ -59,16 +74,21 @@ function calLifeAfterAttack(attackMonster, attackPlayeur) {
 }
 
 function heal() {
-  if (lifePointPlayeur >= 0 && lifePointPlayeur <= 99) {
+let difHeal = maxHeal -lifePointPlayeur
+  // pvactuel-pvmax si > 10 
+  if(difHeal <= 10){
+    lifePointPlayeur +=difHeal
+    document.getElementById("lifePointPlayeur").textContent = lifePointPlayeur;
+    updateDisplayHealBarre();
+    }else if (difHeal >= 10 && lifePointPlayeur <= 100) {
     lifePointPlayeur += 10;
     document.getElementById("lifePointPlayeur").textContent = lifePointPlayeur;
-
     updateDisplayHealBarre();
-  } else {
+    } else {
     lifePointPlayeur = 100;
     document.getElementById("lifePointPlayeur").textContent = lifePointPlayeur;
     updateDisplayHealBarre();
-  }
+    }
 }
 
 function specialAttack() {
@@ -76,9 +96,9 @@ function specialAttack() {
   lifePointMonster = Number(lifePointMonster);
 
   if (lifePointPlayeur <= 0) {
-    alert(`vous avez plu de point de vie`);
+    gif.src =`images/gif/__Death.gif`
   } else if (lifePointMonster <= 0) {
-    alert(`vous avez gagnier`);
+    gifMonster.src =`images/gif-monster/NightBorne_death..gif`
   } else {
     let pointAttanckMonster = randomAttackPoint();
     let pointSpecailAttack = randomSpecialAttackPoint();
