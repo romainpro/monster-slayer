@@ -125,5 +125,8 @@ function displaylisteHit(lifePointPlayeur,attackMonster,lifePointMonster,attackP
     listeHit.textContent =(`vous avez ${lifePointPlayeur} de point de vie , le monstre vous inflige ${attackMonster}point de degat`);
     divDetail.appendChild(listeHit)
 
-    
+    let listeHitMonster = document.createElement(`span`)
+      listeHitMonster.classList.add(`monster`)
+      listeHitMonster.textContent =(`le monster a ${lifePointMonster} de point de vie ,  vous infliger ${attackPlayeur}point de degat au monster`);
+      divDetail.appendChild(listeHitMonster)
 }
